@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Підписатися на Telegram канал</title>
+  <meta name="description" content="Короткий шлях до нашого Telegram-каналу">
+  <!-- k1 / telegram lander -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --top-color: #0f172a;
+      --bottom-color: #1e293b;
+      --body-text: #e2e8f0;
+      --muted-note: #64748b;
+      --accent-link: #94a3b8;
+      --accent-link-hover: #e2e8f0;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --top-color: #f8fafc;
+        --bottom-color: #e2e8f0;
+        --body-text: #1e293b;
+        --muted-note: #64748b;
+        --accent-link: #64748b;
+        --accent-link-hover: #0f172a;
+      }
+    }
+
+    html { background: var(--bottom-color); height: 100%; }
+    body { height: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--top-color) 0%, var(--bottom-color) 100%);
+      color: var(--body-text);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 24px;
+    }
+
+    .main-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      padding: 22px 48px;
+      text-decoration: none;
+      border-radius: 60px;
+      background: linear-gradient(180deg, #37aee2 0%, #1e96c8 100%);
+      box-shadow: 0 12px 32px rgba(30, 150, 200, 0.45);
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .main-button:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(30, 150, 200, 0.6); }
+    .main-button:active { transform: none; }
+    .main-button svg { flex-shrink: 0; width: 30px; height: 30px; fill: #fff; }
+
+    .bottom-bar {
+      width: 100%;
+      padding: 28px 16px 36px;
+      font-size: 13px;
+      text-align: center;
+      color: var(--muted-note);
+    }
+
+    .bottom-bar a {
+      margin: 0 8px;
+      color: var(--accent-link);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .bottom-bar a:hover { text-decoration: underline; color: var(--accent-link-hover); }
+
+    .dot { margin: 0 8px; }
+
+    @media (max-width: 480px) {
+      .main-button { font-size: 19px; padding: 18px 32px; gap: 12px; max-width: 100%; }
+      .main-button svg { width: 26px; height: 26px; }
+      .bottom-bar { padding: 24px 16px calc(24px + env(safe-area-inset-bottom)); }
+      .bottom-bar a { display: block; margin: 8px 0; }
+      .dot { display: none; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      var pixelValue = new URLSearchParams(window.location.search).get("pixel");
+      if (!pixelValue) return;
+
+      !(function (a, b, c, d, e, f, g) {
+        if (a.fbq) return;
+        e = a.fbq = function () {
+          e.callMethod
+            ? e.callMethod.apply(e, arguments)
+            : e.queue.push(arguments);
+        };
+        if (!a._fbq) a._fbq = e;
+        e.push = e;
+        e.loaded = !0;
+        e.version = "2.0";
+        e.queue = [];
+        f = b.createElement(c);
+        f.async = !0;
+        f.src = d;
+        g = b.getElementsByTagName(c)[0];
+        g.parentNode.insertBefore(f, g);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+      fbq("init", pixelValue);
+      fbq("track", "PageView");
+    })();
+  </script>
+</head>
+<body>
+  <main class="hero">
+    <a class="main-button" href="tg://join?invite=I0CTm5WBddIzNmNi" onclick="fbq('track', 'Lead')">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 12.86 3.64 11.6c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+      </svg>
+      Підписатися на Telegram
+    </a>
+  </main>
+
+  <footer class="bottom-bar">
+    <a href="privacy.html">Конфіденційність</a><span class="dot">·</span><a href="cookies.html">Cookies</a><span class="dot">·</span><a href="terms.html">Умови</a>
+  </footer>
+</body>
+</html>
